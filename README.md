@@ -1,9 +1,11 @@
 # A syncthing wrapper for old Android ARMv7 devices without NEON
 
-Aimed for old devices such as Samsung Galaxy Tab 8.9 GT-P7300 from 2011 which based on NVidia Tegra 2 (ARMv7 without NEON instruction set):
+Aimed at old ARMv7 devices without NEON instruction set (such as Samsung Galaxy Tab 8.9 GT-P7300 from 2011 which is based on Nvidia Tegra 2).
 
-- it uses older NDK r23 to support non-NEON builds
-- it adds `-mfpu=vfpv3-d16` to the armv7 compiler flags to match Tegra 2 capabilities
+Basically, there are just two changes compared to the upstream:
+
+- switched to older NDK r23 to support non-NEON builds
+- added `-mfpu=vfpv3-d16` to the armv7 compiler flags to match Tegra 2 capabilities
 
 ## Build and install
 
@@ -31,7 +33,7 @@ docker run --platform linux/amd64 --name builder --rm -it \
 Install with ADB:
 
 ```sh
-adb -d install -r app/build/outputs/apk/debug/syncthingfork_debug_armeabi-v7a.apk
+adb -d install -r app/build/outputs/apk/debug/app-debug.apk
 ```
 
 <details><summary>For reference: objdump and readelf of libsyncthingnative.so</summary>

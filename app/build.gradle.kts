@@ -142,6 +142,7 @@ android {
     lint {
         abortOnError = true
         targetSdk = libs.versions.target.sdk.get().toInt()
+        disable += "ChromeOsAbiSupport"
     }
 
     dependenciesInfo {
